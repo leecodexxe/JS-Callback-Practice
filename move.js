@@ -43,8 +43,16 @@ function move(element) {
             }else if(y >= 699){
                 y = 699
             }
+            // element.style.left = x + 'px'
+            // element.style.bottom = y + 'px'
         }
-        setInterval(moveCharacter, 1)
+        // Currently, a player can make the character walk past the edges of the screen. 
+        // Add some if conditions to the setInterval callback to prevent this.
+        if (x >49 && x < 701 && y > 100 && y <700){
+            setInterval(moveCharacter, 1)
+        }else{setInterval(moveCharacter, 10000)}
+
+        
         document.addEventListener('keydown', function(e){
             if(e.repeat) return;
         
